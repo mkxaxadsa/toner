@@ -47,8 +47,12 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
         getValueData(HiveHelper.lastWeekIncomes, HiveHelper.lastWeekExpenses);
     weekLabels = [
       for (final val in weekValues)
-        weekdays[(val["date_time"] as DateTime).weekday - 1]
+        if (val["date_time"] != null)
+          weekdays[(val["date_time"] as DateTime).weekday - 1]
+        else
+          "Today"
     ];
+
     monthValues =
         getValueData(HiveHelper.lastMonthIncomes, HiveHelper.lastMonthExpenses);
     monthLabels =
@@ -77,25 +81,33 @@ class _ActivitiesScreenState extends State<ActivitiesScreen> {
     List<List<ExpenseTransactionModel>> expenses,
   ) {
     final Map<String, Map<String, dynamic>> map = {};
+
     for (final a in expenses) {
-      int exp = [for (final item in a) item.amount]
-          .reduce((value, element) => value + element);
-      if (map[a.first.dateTime.ymd.simpleFormat] == null) {
-        map[a.first.dateTime.ymd.simpleFormat] = {};
+      if (a.isNotEmpty) {
+        int exp = a
+            .map((item) => item.amount)
+            .reduce((value, element) => value + element);
+        if (map[a.first.dateTime.ymd.simpleFormat] == null) {
+          map[a.first.dateTime.ymd.simpleFormat] = {};
+        }
+        map[a.first.dateTime.ymd.simpleFormat]?["expense"] = exp;
+        map[a.first.dateTime.ymd.simpleFormat]?["date_time"] = a.first.dateTime;
+        map[a.first.dateTime.ymd.simpleFormat]?["income"] = 0;
       }
-      map[a.first.dateTime.ymd.simpleFormat]?["expense"] = exp;
-      map[a.first.dateTime.ymd.simpleFormat]?["date_time"] = a.first.dateTime;
-      map[a.first.dateTime.ymd.simpleFormat]?["income"] = 0;
     }
 
     for (final a in incomes) {
-      int inc = [for (final item in a) item.amount]
-          .reduce((value, element) => value + element);
-      if (map[a.first.dateTime.ymd.simpleFormat] == null) {
-        map[a.first.dateTime.ymd.simpleFormat] = {};
+      if (a.isNotEmpty) {
+        int inc = a
+            .map((item) => item.amount)
+            .reduce((value, element) => value + element);
+        if (map[a.first.dateTime.ymd.simpleFormat] == null) {
+          map[a.first.dateTime.ymd.simpleFormat] = {};
+        }
+        map[a.first.dateTime.ymd.simpleFormat]?["income"] = inc;
       }
-      map[a.first.dateTime.ymd.simpleFormat]?["income"] = inc;
     }
+
     return map.values.toList();
   }
 
