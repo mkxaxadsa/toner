@@ -42,11 +42,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(
                 height: 20,
               ),
-              _item(icon: AppIcons.terms, title: "Terms of use", url: '')
+              _item(
+                      icon: AppIcons.terms,
+                      title: "Terms of use",
+                      url:
+                          'https://docs.google.com/document/d/1fJdYcs2IwPT3euPtz5yIZdTkACJ37s1jxiAPlUUErgs/edit?usp=sharing')
                   .paddingOnly(bottom: 16),
-              _item(icon: AppIcons.privacy, title: "Privacy Policy", url: '')
+              _item(
+                      icon: AppIcons.privacy,
+                      title: "Privacy Policy",
+                      url:
+                          'https://docs.google.com/document/d/1bGOUXOi3UXjtz5B0ZlJcVOHt9-kbHGAUROldo1Y94j0/edit?usp=sharing')
                   .paddingOnly(bottom: 16),
-              _item(icon: AppIcons.support, title: "Support page", url: '')
+              _item(
+                      icon: AppIcons.support,
+                      title: "Support page",
+                      url: 'https://forms.gle/iKEkK61cpdJ9HS4d7')
                   .paddingOnly(bottom: 16),
               const SizedBox(
                 height: 20,
