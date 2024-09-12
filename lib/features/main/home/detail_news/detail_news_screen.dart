@@ -27,13 +27,7 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
           children: [
             Positioned.fill(
               child: Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment(0.00, -1.00),
-                    end: Alignment(0, 1),
-                    colors: [Colors.white, Color(0xFF2289EA)],
-                  ),
-                ),
+                decoration: const BoxDecoration(color: Colors.white),
               ),
             ),
             Positioned.fill(
@@ -54,16 +48,6 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text(
-                            widget.item.title,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ).paddingLTRB(20, 0, 20, 24),
                           Positioned(
                             right: 18,
                             top: 18,
@@ -81,9 +65,20 @@ class _DetailNewsScreenState extends State<DetailNewsScreen> {
                       ),
                     ),
                     Text(
-                      widget.item.text,
+                      widget.item.title,
+                      textAlign: TextAlign.center,
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
+                        fontSize: 24,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ).paddingLTRB(20, 0, 20, 24),
+                    Text(
+                      widget.item.text,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.black,
                         fontSize: 20,
                         fontFamily: 'Montserrat',
                       ),

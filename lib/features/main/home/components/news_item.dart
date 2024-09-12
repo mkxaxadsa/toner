@@ -32,22 +32,32 @@ class NewsItem extends StatelessWidget {
             Positioned.fill(
               child: Column(
                 children: [
-                  Text(
-                    item.title,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w700,
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.black
+                          .withOpacity(0.5), // Тёмный цвет с прозрачностью
+                      borderRadius:
+                          BorderRadius.circular(12), // Округление углов
                     ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ).paddingSymetric(horizontal: 20),
+                    child: Text(
+                      item.title,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w700,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ).paddingOnly(left: 20, right: 20),
                   const Spacer(),
                   GestureDetector(
                     onTap: () {
-                      GlobalNavigator.push(context, page: DetailNewsScreen(item: item));
+                      GlobalNavigator.push(context,
+                          page: DetailNewsScreen(item: item));
                     },
                     child: Container(
                       width: 100,
