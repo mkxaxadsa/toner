@@ -3,6 +3,7 @@ import 'package:finance_app/features/main/activities/activities_screen.dart';
 import 'package:finance_app/features/main/components/bottom_bar.dart';
 import 'package:finance_app/features/main/home/home_screen.dart';
 import 'package:finance_app/features/main/settings/settings_screen.dart';
+import 'package:finance_app/features/quiz/QuizMainScreen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -16,6 +17,7 @@ class _MainScreenState extends State<MainScreen> {
   final pages = [
     const HomeScreen(),
     const ActivitiesScreen(),
+    const QuizPage(),
     const SettingsScreen(),
   ];
 
@@ -27,21 +29,21 @@ class _MainScreenState extends State<MainScreen> {
       body: SizedBox(
         width: double.maxFinite,
         child: SafeArea(
-                bottom: false,
-                child: Column(
-                  children: [
-                    pages[currentIndex].expanded(),
-                    BottomBarWidget(
-                      currentPageIndex: currentIndex,
-                      onChanged: (pageIndex) {
-                        setState(() {
-                          currentIndex = pageIndex;
-                        });
-                      },
-                    ),
-                  ],
-                ),
+          bottom: false,
+          child: Column(
+            children: [
+              pages[currentIndex].expanded(),
+              BottomBarWidget(
+                currentPageIndex: currentIndex,
+                onChanged: (pageIndex) {
+                  setState(() {
+                    currentIndex = pageIndex;
+                  });
+                },
               ),
+            ],
+          ),
+        ),
       ),
     );
   }

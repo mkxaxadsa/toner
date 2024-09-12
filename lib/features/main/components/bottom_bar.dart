@@ -38,9 +38,14 @@ class BottomBarWidget extends StatelessWidget {
             index: 1,
           ),
           _item(
+            icon: 'assets/icons/quiz.png',
+            label: "Quiz/Community",
+            index: 2,
+          ),
+          _item(
             icon: AppIcons.settings,
             label: "Settings",
-            index: 2,
+            index: 3,
           ),
         ],
       ),
@@ -66,7 +71,9 @@ class BottomBarWidget extends StatelessWidget {
             Image.asset(
               icon,
               width: 25,
-              color: isSelected ? Colors.white : const Color(0xff0966BD),
+              color: isSelected
+                  ? Colors.white
+                  : const Color.fromARGB(255, 0, 0, 0),
             ).paddingOnly(bottom: 5),
             Text(
               label,
