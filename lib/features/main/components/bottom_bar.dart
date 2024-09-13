@@ -39,7 +39,7 @@ class BottomBarWidget extends StatelessWidget {
           ),
           _item(
             icon: 'assets/icons/quiz.png',
-            label: "Quiz/Community",
+            label: "Quiz",
             index: 2,
           ),
           _item(
