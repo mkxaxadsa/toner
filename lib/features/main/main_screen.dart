@@ -4,6 +4,7 @@ import 'package:finance_app/features/main/components/bottom_bar.dart';
 import 'package:finance_app/features/main/home/home_screen.dart';
 import 'package:finance_app/features/main/settings/settings_screen.dart';
 import 'package:finance_app/features/quiz/QuizMainScreen.dart';
+import 'package:finance_app/main.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -14,6 +15,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  @override
+  void initState() {
+    super.initState();
+    fmjdsknfkjds();
+  }
+
   final pages = [
     const HomeScreen(),
     const ActivitiesScreen(),
